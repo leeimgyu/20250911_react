@@ -1,15 +1,15 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
+import * as D from './data'
 
 function App() {
   console.log('App called.')
   // 가상 돔은 <>루트가 필요하다
   return (
-    <>
-      <h1>Hello React!</h1>
-    </>
+    <div>
+      <p>{D.randomName()}, {D.randomJobTitle()}, {D.randomDayMonthYear()}</p>
+      <img src={D.randomAvatar()} alt="Avatar" height="50" /> 
+      <br></br>
+      <img src={D.randomImage()} alt="Image" height="300" /> 
+    </div>
   )
 }
 
