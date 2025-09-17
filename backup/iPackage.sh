@@ -4,6 +4,7 @@ npm i
 
 echo "Installing dependencies..."
 npm i chance luxon
+# npm i react-select
 
 echo "Installing TypeScript dependencies..."
 npm i -D @types/chance @types/luxon

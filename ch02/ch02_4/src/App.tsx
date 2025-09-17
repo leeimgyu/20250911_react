@@ -18,7 +18,6 @@ function App() {
   // )
 
   // children 속성 1 :: 자식요소를 포함하는 컴포넌트에서만 사용. 자식으로 사용할 수 있는 속성
-  // div나 span 같은것들 
   // const texts = ['hello', 'world'].map((text, idx) => <p key={idx} children={text} />)
   // return (
   //   <div children={texts} />
