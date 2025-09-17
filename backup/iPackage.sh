@@ -1,9 +1,8 @@
-@echo off
 echo "npm install..."
 npm i
 
 echo "Installing dependencies..."
-npm i chance luxon
+npm i chance luxon @fontsource/material-icons
 # npm i react-select
 
 echo "Installing TypeScript dependencies..."
