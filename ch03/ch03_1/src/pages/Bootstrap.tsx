@@ -2,7 +2,7 @@ export default function Bootstrap() {
   // class -> className, for -> htmlFor, 단독 태그일 경우 끝에 /> 마무리
   return (
     <div>
-      <p>Bootstrap</p>
+      <p>1. Bootstrap</p>
       <form>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
