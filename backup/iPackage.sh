@@ -15,6 +15,7 @@ cp C:/workspace/spaceReact/20250911_react/backup/src/*.css ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/data ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/copy ./src
 mkdir ./src/pages
+mkdir ./src/components
 
 echo "Installation Completed!"
 read -p "Press Enter to exit!"
