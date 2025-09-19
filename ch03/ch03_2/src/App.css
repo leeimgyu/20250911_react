@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: left;
-  background: #f3f3f3;
+  box-shadow: 2px 2px 5px #aaa, -2px -2px 5px #aaa; 
 }
 
 #root > div  {
@@ -12,7 +12,7 @@
   margin: 10px 0; padding: 5px; cursor: pointer;
 }
 #root > div:hover {border: 1px solid blue;}
-#root>div>p {background: yellow;}
+
 
 .logo {
   height: 6em;
@@ -48,4 +48,4 @@
 
 .read-the-docs {
   color: #888;
-}     
+}
