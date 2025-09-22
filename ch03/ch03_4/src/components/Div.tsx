@@ -21,5 +21,5 @@ export const Div: FC<DivProps> = ({
   // box-sizing : 컨테이너 크기를 결정(content-box, border-box, padding-box, inherit)
   // tailwindcss에는 box-content, box-border 2가지가 존재
   const className = ['box-border', src && 'bg-gray-300', _className].join(' ')
-  return <div {...props} className={className} style={style} />
+  return <div {...props} className={className} style={style} /> // react 기본 컴포넌트
 }

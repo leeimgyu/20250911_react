@@ -13,7 +13,7 @@ npm i -D postcss autoprefixer tailwindcss
 npm install tailwindcss @tailwindcss/vite
 npm install tailwindcss @tailwindcss/postcss postcss
 npm install tailwindcss @tailwindcss/cli
-npm i daisyui@latest
+npm i -D daisyui@latest
 
 echo "Copy Files..."
 cp C:/workspace/spaceReact/20250911_react/backup/.*.cjs .
