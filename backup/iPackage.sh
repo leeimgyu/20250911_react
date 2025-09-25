@@ -24,6 +24,7 @@ cp C:/workspace/spaceReact/20250911_react/backup/src/*.css ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/data ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/copy ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/components ./src
+cp -r C:/workspace/spaceReact/20250911_react/backup/src/hooks ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/theme ./src
 mkdir -p ./src/pages
 

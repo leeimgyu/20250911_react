@@ -47,10 +47,36 @@ function App() {
   //   }, duration)
   //   return () => clearInterval(id)
   // }, [])
-
+  
   // 6. 커스텀 훅 함수(useClock) 활용 :: 복합된 훅들을 사용하기 때문 (사용하기 편리함)
   const today = useClock()
 
   return <Clock today={today} />
 }
 export default App
+
+
+//   //     리액트 훅 함수의 특징
+//   // 1. 같은 리액트 훅을 여러번 호출할 수 있다.
+//   const [x,setX] = useState(0)
+//   const [y,setY] = useState(0)
+//   useEffect(()=>{},[])
+//   useEffect(()=>{},[])
+
+//   // 2. 함수 몸 통이 아닌 몸통 안 {}에서 호출할 수 없다.
+//   export function App2() {
+//     {//지역변수 블록
+//       const[x,setX] = useState<number>(0) // 이렇게 구현 불가
+//   }
+// }
+//   export function App3() {
+//     if(true) {
+//       const[x, setX] = useState<number>(0) // 이렇게 구현 불가
+//     }
+//   }
+//   // 3. 비동기 함수 콜백 함수로 사용할 수 없다.
+//   export function App4() {
+//     useEffect(async () => {    // 이렇게 구현 불가 
+//       await Promise.resolve(1)
+//     }, [])
+//   }
