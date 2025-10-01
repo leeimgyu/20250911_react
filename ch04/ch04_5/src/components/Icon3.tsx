@@ -8,8 +8,8 @@ type ReactSpanProps = DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpa
 // & 여러 타입을 합쳐서 하나의 타입으로 만듦, | 기호는 둘 중에 하나면 됨
 export type IconProps3 = ReactSpanProps & {name: string}
 
-export const Icon3: FC<IconProps3> = function (iconProps3: IconProps3) {   // Icon : 함수형 컴포넌트
-  const {name, className: _className, ...props} = iconProps3               // 구조분해할당 부분 
+export const Icon3: FC<IconProps3> = function (iconProps3: IconProps3) {
+  const {name, className: _className, ...props} = iconProps3
   const className = ['material-symbols-outlined', _className].join(' ')
   return (
     <span className={className} {...props}>
