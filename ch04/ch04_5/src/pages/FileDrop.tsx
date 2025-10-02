@@ -1,5 +1,5 @@
 import {Title, Div} from '../components'
-import {ChangeEvent, DragEvent} from 'react'
+import type { ChangeEvent, DragEvent } from 'react'
 import {useState, useRef, useCallback, useMemo} from 'react'
 import {useToggle} from '../hooks'
 import {imageFileReaderP} from '../utils'
@@ -19,11 +19,11 @@ export default function FileDrop() {
       //Array.from은 File[]을 일반 배열로 변경하고 후에 string[]로 변환
       const promises = Array.from(files).map(imageFileReaderP)
 
-      toggleLoading()
+      toggleLoading()  // true
       Promise.all(promises)
         .then(urls => setImageUrls(imageUrls => [...urls, ...imageUrls]))
         .catch(setError)
-        .finally(toggleLoading)
+        .finally(toggleLoading)  // false
     },
     [toggleLoading]
   )
