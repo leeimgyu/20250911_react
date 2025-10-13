@@ -12,7 +12,7 @@ export default function InputValueTest() {
       <Title>InputValueTest</Title>
       <div className="flex justify-center mt-4 ">
         <div className="flex flex-col w-1/3 p-2">
-          <input ref={inputRef} className="input input-primary" />
+          <input ref={inputRef} className="input input-primary" style={{}}/>
           <button onClick={getValue} className="mt-4 btn btn-primary">
             get value
           </button>

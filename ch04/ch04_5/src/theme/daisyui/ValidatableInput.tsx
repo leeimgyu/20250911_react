@@ -16,7 +16,7 @@ export const ValidatableInput = forwardRef<ValidatableInputMethods, ReactInputPr
     // useImperativeHandle을 사용함으로 사용자컴포넌트에 포함되는 함수를 정의할수있다.
     // 그래서 다른 컴포넌트들과 달리 컴포넌트 내부에서만 사용해야 한다.
     // 다시말하자면 ref로 노출되는 핸들을 사용자가 직접 정의할 수 있게 한다.
-    // useImperativeHandle(ref, callback ):void
+    // useImperativeHandle(ref, createHandle, [deps] ):void / fowardRef로 전달받은 ref, 반환할 객체를 만든는 함수, 의존성목록
     useImperativeHandle(
       methodsRef,
       function () {
@@ -27,6 +27,7 @@ export const ValidatableInput = forwardRef<ValidatableInputMethods, ReactInputPr
 
             switch (type) {
               case 'email': {
+                // https://regexr.com/ 정규표현식 설명 사이트
                 const regEx =
                   /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
                 const valid = regEx.test(value)
