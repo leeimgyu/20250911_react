@@ -14,6 +14,7 @@ npm install tailwindcss @tailwindcss/vite
 npm install tailwindcss @tailwindcss/postcss postcss
 npm install tailwindcss @tailwindcss/cli
 npm i -D daisyui@latest
+npm i redux @reduxjs/toolkit react-redux
 
 echo "Copy Files..."
 cp C:/workspace/spaceReact/20250911_react/backup/.*.cjs .
@@ -26,7 +27,9 @@ cp -r C:/workspace/spaceReact/20250911_react/backup/src/copy ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/components ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/hooks ./src
 cp -r C:/workspace/spaceReact/20250911_react/backup/src/theme ./src
+cp -r C:/workspace/spaceReact/20250911_react/backup/src/contexts ./src
 mkdir -p ./src/pages
+mkdir -p ./src/store
 
 echo "Installation Completed!"
 read -p "Press Enter to exit!"
