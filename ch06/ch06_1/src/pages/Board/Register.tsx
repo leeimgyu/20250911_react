@@ -1,6 +1,7 @@
 import {useCallback, useRef, useState, type ChangeEvent, type FormEvent} from 'react'
 import {useSearchParams} from 'react-router-dom'
 import {Title} from '../../components'
+import toast from 'react-hot-toast'
 
 type FormType = {title: string; content: string}
 
@@ -10,28 +11,25 @@ function Register() {
   const contentRef = useRef<HTMLInputElement | null>(null)
 
   const [form, setForm] = useState<FormType>({title: '', content: ''})
-  const [error, setError] = useState<string | null>(null)
 
   const onChangeTitle = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({...prev, title: e.target.value}))
-    setError(null)
   }, [])
 
   const onChangeContent = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({...prev, content: e.target.value}))
-    setError(null)
   }, [])
 
   const onSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       if (!form.title.trim()) {
-        setError('제목을 입력하세요')
+        toast.error('제목을 입력하세요')
         titleRef.current?.focus()
         return
       }
       if (!form.content.trim()) {
-        setError('내용을 입력하세요')
+        toast.error('내용을 입력하세요')
         contentRef.current?.focus()
         return
       }
@@ -71,23 +69,6 @@ function Register() {
             placeholder="Enter content"
           />
         </div>
-        {error && (
-          <div className="alert alert-error">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 stroke-current shrink-0"
-              fill="none"
-              viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>{error}</span>
-          </div>
-        )}
         <div className="flex items-center justify-center">
           <button type="submit" className="w-full btn btn-primary">
             Register

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 export default function Read() {
-  const params = useParams()
+  const params = useParams() // useParams에 대해 알것 !
   return (
     <div>
       <h4>Read</h4>
