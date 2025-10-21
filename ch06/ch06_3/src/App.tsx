@@ -4,12 +4,12 @@ import {HTML5Backend} from 'react-dnd-html5-backend'
 import {BrowserRouter} from 'react-router-dom'
 import {AuthProvider} from './contexts'
 import RoutesSetup from './routes/RoutesSetup'
-// import {useStore} from './store'
+import {useStore} from './store'
 
 function App() {
-  // const store = useStore()
+  const store = useStore()
   return (
-    // <ReduxProvider store={store}>
+    <ReduxProvider store={store}>
       <DndProvider backend={HTML5Backend}>
         <BrowserRouter>
           <AuthProvider>
@@ -17,7 +17,7 @@ function App() {
           </AuthProvider>
         </BrowserRouter>
       </DndProvider>
-    // </ReduxProvider>
+    </ReduxProvider>
   )
 }
 export default App
