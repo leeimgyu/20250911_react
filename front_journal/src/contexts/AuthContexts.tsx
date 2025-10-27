@@ -16,7 +16,23 @@ type ContextType = {
 // 초기화
 export const AuthContext = createContext<ContextType>({
   signup: (email: string, password: string, callback?: Callback) => {},
-  login: (email: string, password: string, callback?: Callback) => {},
+  login: async(email: string, password: string, callback?: Callback) => {
+    try {
+      await fetch(`http://localhost:8080/api/login?email=${email}&pass=${password}`,
+        {method: 'POST'}
+      )
+      .then(res => res.text())
+      .then(token => {
+        if(token.startsWith('{"code"')){
+          
+        } else {
+          sessionStorage.setItem("token", token)
+          sessionStorage.setItem("email", email)
+        }
+      })
+      .catch(err => console.log('Error:', err))
+    } catch (error) {console.log('Error:', error)} 
+  },
   logout: (callback?: Callback) => {}
 })
 

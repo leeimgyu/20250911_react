@@ -1,11 +1,11 @@
-import Header from "../../components/Header";
-import FeaturesSection from "../../components/FeaturesSection";
+import Header from '../../components/Header'
+import JournalsSection from '../../components/JournalsSection'
 
 export default function LandingPage() {
   return (
     <>
       <Header />
-      <FeaturesSection />
+      <JournalsSection />
     </>
   )
 }

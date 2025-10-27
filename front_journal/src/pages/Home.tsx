@@ -1,14 +1,14 @@
-import React from "react";
-import Header from "../components/Header";
-import FeaturesSection from "../components/FeaturesSection";
+import React from 'react'
+import Header from '../components/Header'
+import JournalsSection from '../components/JournalsSection'
 
 const Home: React.FC = () => {
   return (
     <>
       <Header />
-      <FeaturesSection />
+      <JournalsSection />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

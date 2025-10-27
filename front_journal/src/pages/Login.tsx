@@ -12,15 +12,17 @@ export default function Login() {
   const [error, setError] = useState<string>('') // 🔹 에러 메시지 상태
 
   const changed = useCallback(
-    (key: keyof LoginFormType) => (e: ChangeEvent<HTMLInputElement>) => {
-      setForm(obj => ({...obj, [key]: e.target.value}))
-      setError('') // 입력 중이면 에러 초기화
-    },
+    function (key: keyof LoginFormType) {
+      return (e: ChangeEvent<HTMLInputElement>) => {
+        setForm(obj => ({ ...obj, [key]: e.target.value }))
+        setError('')
+    }
+  },
     []
   )
 
   const navigate = useNavigate()
-  const {login} = useAuth()
+  const {login, loggedUser} = useAuth()
 
   // ✅ 유효성 검사 함수
   const validate = useCallback(() => {
@@ -35,27 +37,45 @@ export default function Login() {
       return false
     }
 
-    if (password.length < 6) {
-      setError('비밀번호는 6자 이상이어야 합니다.')
-      return false
-    }
+    // if (password.length < 6) {
+    //   setError('비밀번호는 6자 이상이어야 합니다.')
+    //   return false
+    // }
 
     return true
   }, [email, password])
 
   const loginAccount = useCallback(() => {
     if (!validate()) return // 🔹 유효성 검사 실패 시 로그인 중단
-
-    login(email, password, () => navigate('/'))
+    // login(email, password, () => navigate('/'))
+    try {
+      fetch(`http://localhost:8080/api/login?email=${email}&pass=${password}`,
+        {method: 'POST'}
+      )
+      .then(res => res.text())
+      .then(token => {
+        if(token.startsWith('{"code"')){
+          const json = JSON.parse(token)
+          const msg = json['message']
+          setError(msg)
+        } else {
+          sessionStorage.setItem("token", token)
+          sessionStorage.setItem("email", email)
+          login(email, password, ()=>{navigate('/')})
+          console.log(loggedUser)
+        }
+      })
+      .catch(err => console.log('Error:', err))
+    } catch (error) {console.log('Error:', error)} 
   }, [email, password, navigate, login, validate])
 
-  useEffect(() => {
-    U.readObjectP<LoginFormType>('user')
-      .then(user => {
-        if (user) setForm(user)
-      })
-      .catch(() => {})
-  }, [])
+  // useEffect(() => {
+  //   U.readObjectP<LoginFormType>('user')
+  //     .then(user => {
+  //       if (user) setForm(user)
+  //     })
+  //     .catch(() => {})
+  // }, [])
 
   return (
     <div className="flex flex-col">

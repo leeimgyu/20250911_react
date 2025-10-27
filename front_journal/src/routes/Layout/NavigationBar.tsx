@@ -44,6 +44,13 @@ export default function NavigationBar() {
             )}
             {loggedUser && (
               <li className="nav-item">
+                <NavLink className="nav-link" to="/myjournal">
+                  MyJournal
+                </NavLink>
+              </li>
+            )}
+            {loggedUser && (
+              <li className="nav-item">
                 <NavLink className="nav-link" to="/logout">
                   Logout
                 </NavLink>
