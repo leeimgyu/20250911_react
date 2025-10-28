@@ -2,6 +2,7 @@ import type {FormEvent, ChangeEvent} from 'react'
 import {useCallback, useEffect, useRef, useState} from 'react'
 import {useToken} from '../hooks'
 import {useNavigate, useSearchParams} from 'react-router-dom'
+// import type { PhotosDTO } from '../types'
 
 interface PhotosDTO {
   uuid: string

@@ -98,7 +98,7 @@ const JournalsSection: React.FC = () => {
     e.preventDefault()
     const url = '/list'
     const keyword = refKeyword.current?.value
-    const type = refKeyword.current?.value
+    const type = refType.current?.value
 
     if (!keyword) {
       refKeyword.current?.focus()

@@ -11,6 +11,7 @@ import About from '../pages/About'
 import Contact from '../pages/Contact'
 import LandingPage from './LandingPage'
 import JournalRegister from '../pages/JournalRegister'
+import JournalRead from '../pages/JournalRead'
 
 export default function RoutesSetup() {
   return (
@@ -22,7 +23,15 @@ export default function RoutesSetup() {
           path="/register"
           element={
             // <RequireAuth>
-              <JournalRegister />
+            <JournalRegister />
+            // </RequireAuth>
+          }
+        />
+        <Route
+          path="/read"
+          element={
+            // <RequireAuth>
+            <JournalRead />
             // </RequireAuth>
           }
         />

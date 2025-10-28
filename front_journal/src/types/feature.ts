@@ -38,7 +38,18 @@ export interface PageRequestDTO {
 }
 
 export interface PhotosDTO {
-  path?: string | null
   uuid?: string | null
-  getThumbnailURL?: string | null
+  photosName?: string | null
+  path?: string | null
+  thumbnailURL?: string | null
+  fileURL?: string | null
+}
+
+export interface CommentsDTO {
+  cno: number
+  text: string
+  nickname: string
+  email: string
+  likes: number
+  regDate: string
 }

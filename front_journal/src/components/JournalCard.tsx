@@ -8,12 +8,15 @@ const JournalCard: React.FC<{journal: JournalDTO; pageRequestDTO: PageRequestDTO
   console.log(">>" + journal.photosDTOList)
   const navigate = useNavigate()
   const goJournalRead = useCallback(
-    (jno: number, page: number, type: string, keyword: string) => {
-      navigate(`/read?jno=${jno}&page=${page}&keyword=${keyword}&type=${type}`, {
+    (jno: number, page: string, type: string, keyword: string) => {
+      const safeType = type || ''
+      const safeKeyword = keyword || ''
+      console.log('클릭됨 - jno:', jno, 'page:', page, 'type:', safeType, 'keyword:', safeKeyword)
+      navigate(`/read?jno=${jno}&page=${page}&type=${safeType}&keyword=${safeKeyword}`, {
         replace: false
       })
     },
-    []
+    [navigate]
   )
   const thumbnailUrl =
     journal.photosDTOList!.length > 0 && journal.photosDTOList![0].path != null
@@ -23,9 +26,10 @@ const JournalCard: React.FC<{journal: JournalDTO; pageRequestDTO: PageRequestDTO
     <div className="col-lg-6 col-xxl-4 mb-5">
       <div className="card bg-light border-0 h-100">
         <div
-          className="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0 cursor-pointer"
+          className="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0"
+          style={{cursor: 'pointer'}}
           onClick={() => {
-            goJournalRead(journal.jno, parseInt(pageRequestDTO.page), pageRequestDTO.keyword , pageRequestDTO.type)
+            goJournalRead(journal.jno, pageRequestDTO.page, pageRequestDTO.type, pageRequestDTO.keyword)
           }}>
           <div className="journal bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
             <img
