@@ -23,15 +23,13 @@ export default function RoutesSetup() {
           path="/register"
           element={
             // <RequireAuth>
-            <JournalRegister />
+              <JournalRegister />
             // </RequireAuth>
           }
         />
-        <Route
-          path="/read"
-          element={
+        <Route path="/read" element={
             // <RequireAuth>
-            <JournalRead />
+              <JournalRead />
             // </RequireAuth>
           }
         />

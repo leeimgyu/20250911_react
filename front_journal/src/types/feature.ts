@@ -10,7 +10,7 @@ export interface JournalDTO {
   jno: number
   title: string
   content: string
-  photosDTOList: {path?: string; uuid?: string; getThumbnailURL?: string | null}[]
+  photosDTOList: PhotosDTO[]
   commentsCnt: number
   membersDTO: MembersDTO
   likes: number
@@ -41,8 +41,8 @@ export interface PhotosDTO {
   uuid?: string | null
   photosName?: string | null
   path?: string | null
-  thumbnailURL?: string | null
-  fileURL?: string | null
+  getThumbnailURL?: string | null
+  getFileURL?: string | null
 }
 
 export interface CommentsDTO {

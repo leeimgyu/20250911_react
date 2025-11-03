@@ -18,7 +18,7 @@ const Photos: React.FC<Props> = ({journalDTO}) => {
   // 썸네일 URL 가져오기
   const thumbnailUrl =
     hasValidPhoto && photosList[0].getThumbnailURL
-      ? `/display?fileName=${photosList[0].getThumbnailURL}`
+      ? `http://localhost:8080/api/display?fileName=${photosList![0].getThumbnailURL}`
       : 'https://placehold.co/70x100/lightblue/white?text=Sample'
 
   return (
